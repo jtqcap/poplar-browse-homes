@@ -24,7 +24,7 @@ class MainViewModel @Inject constructor(
         getBuildings()
     }
 
-    private fun getBuildings() {
+    fun getBuildings() {
         viewModelScope.launch {
             _state.emit(MainState.ShowLoadingState)
 

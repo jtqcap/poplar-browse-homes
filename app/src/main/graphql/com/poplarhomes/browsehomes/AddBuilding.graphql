@@ -1,0 +1,5 @@
+mutation AddBuilding($address: String!, $baths: Int!, $beds: Int!, $rent: Float!) {
+    addBuilding(address: $address, baths: $baths, beds: $beds, rent: $rent) {
+        buildingId
+    }
+}

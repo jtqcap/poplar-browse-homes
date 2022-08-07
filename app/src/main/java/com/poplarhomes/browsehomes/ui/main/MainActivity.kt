@@ -58,7 +58,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonAdd
             .clicks()
             .onEach {
-                AddPropertyFragment().show(
+                AddPropertyFragment {
+                    viewModel.getBuildings()
+                }.show(
                     supportFragmentManager,
                     AddPropertyFragment::class.java.name
                 )

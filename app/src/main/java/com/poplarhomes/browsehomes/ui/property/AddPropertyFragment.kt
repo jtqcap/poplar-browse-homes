@@ -8,13 +8,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.poplarhomes.browsehomes.databinding.FragmentAddPropertyBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import reactivecircus.flowbinding.android.view.clicks
 import reactivecircus.flowbinding.android.widget.textChanges
 
-class AddPropertyFragment : BottomSheetDialogFragment() {
+@AndroidEntryPoint
+class AddPropertyFragment(
+    private val onAddProperty: () -> Unit
+) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentAddPropertyBinding
     private val viewModel by viewModels<AddPropertyViewModel>()
@@ -90,6 +94,7 @@ class AddPropertyFragment : BottomSheetDialogFragment() {
         binding.buttonSubmit
             .clicks()
             .onEach {
+                viewModel.addProperty()
             }
             .launchIn(lifecycleScope)
     }
@@ -106,6 +111,8 @@ class AddPropertyFragment : BottomSheetDialogFragment() {
                         binding.buttonSubmit.isEnabled = state.isComplete
                     }
                     is AddPropertyState.AddProperty -> {
+                        onAddProperty.invoke()
+                        dismiss()
                     }
                     is AddPropertyState.ShowErrorMessage -> {
                     }
