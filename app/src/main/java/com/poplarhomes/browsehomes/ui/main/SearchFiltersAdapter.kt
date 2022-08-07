@@ -1,4 +1,4 @@
-package com.poplarhomes.browsehomes.ui
+package com.poplarhomes.browsehomes.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.poplarhomes.browsehomes.ui
+package com.poplarhomes.browsehomes.ui.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
