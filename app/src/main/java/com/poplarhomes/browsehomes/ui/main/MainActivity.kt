@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.poplarhomes.browsehomes.R
 import com.poplarhomes.browsehomes.databinding.ActivityMainBinding
+import com.poplarhomes.browsehomes.ui.property.AddPropertyFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
@@ -57,6 +58,10 @@ class MainActivity : AppCompatActivity() {
         binding.buttonAdd
             .clicks()
             .onEach {
+                AddPropertyFragment().show(
+                    supportFragmentManager,
+                    AddPropertyFragment::class.java.name
+                )
             }
             .launchIn(lifecycleScope)
     }

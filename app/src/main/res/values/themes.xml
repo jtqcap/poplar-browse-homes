@@ -1,19 +1,31 @@
 <resources>
 
-    <style name="Theme.BrowseHomes" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.Poplar" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryVariant">@android:color/white</item>
         <item name="colorOnPrimary">@color/flush</item>
         <item name="colorAccent">@color/flush</item>
     </style>
 
-    <style name="Theme.BrowseHomes.NoActionBar">
+    <style name="Theme.Poplar.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.BrowseHomes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Poplar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.BrowseHomes.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Poplar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.Poplar.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_property_field</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:hint">@string/bedrooms</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/mine</item>
+        <item name="android:textColorHint">@color/shuttle</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 
 </resources>

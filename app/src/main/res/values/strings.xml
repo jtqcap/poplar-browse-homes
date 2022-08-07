@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Browse Homes</string>
+    <string name="app_name">Poplar</string>
     <string name="settings">Settings</string>
     <string name="where_are_we_moving">Where are we moving?</string>
     <string-array name="search_filters">
@@ -10,4 +10,10 @@
     </string-array>
     <string name="x_bedroom_building">%d-bedroom Building</string>
     <string name="space_x"><![CDATA[<font color=#FFFFFF>XXX</font>%s]]></string>
+    <string name="add_a_property">Add a property</string>
+    <string name="address">Address</string>
+    <string name="bathrooms">Bathrooms</string>
+    <string name="bedrooms">Bedrooms</string>
+    <string name="rent">Rent</string>
+    <string name="submit">Submit</string>
 </resources>
