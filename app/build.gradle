@@ -56,6 +56,9 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "javax.inject:javax.inject:1"
 
+    // Image
+    implementation "com.squareup.picasso:picasso:2.8"
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
     implementation "androidx.core:core-ktx:1.8.0"
@@ -69,6 +72,8 @@ dependencies {
 
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation "io.github.reactivecircus.flowbinding:flowbinding-android:1.2.0"
+    implementation "io.github.reactivecircus.flowbinding:flowbinding-material:1.2.0"
 
     // Network
     implementation "com.apollographql.apollo3:apollo-runtime:3.5.0"

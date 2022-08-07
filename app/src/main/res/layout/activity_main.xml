@@ -31,7 +31,7 @@
                 android:id="@+id/button_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="4dp"
                 android:src="@drawable/ic_menu"
                 android:tint="@color/flush" />
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/rect_lilac_corner_8"
+        android:background="@drawable/rect_lilac_corner_4"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="8dp"
         android:drawableTint="@color/shuttle"
@@ -73,9 +73,10 @@
         android:id="@+id/list_filters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/text_search" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -85,6 +86,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="24dp"
         android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/list_filters" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

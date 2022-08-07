@@ -4,6 +4,7 @@
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryVariant">@android:color/white</item>
         <item name="colorOnPrimary">@color/flush</item>
+        <item name="colorAccent">@color/flush</item>
     </style>
 
     <style name="Theme.BrowseHomes.NoActionBar">
