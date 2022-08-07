@@ -8,9 +8,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.poplarhomes.browsehomes.databinding.FragmentAddPropertyBinding
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import reactivecircus.flowbinding.android.view.clicks
+import reactivecircus.flowbinding.android.widget.textChanges
 
 class AddPropertyFragment : BottomSheetDialogFragment() {
 
@@ -28,12 +30,8 @@ class AddPropertyFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setViews()
         setViewCallbacks()
         setViewModel()
-    }
-
-    private fun setViews() {
     }
 
     private fun setViewCallbacks() {
@@ -41,6 +39,51 @@ class AddPropertyFragment : BottomSheetDialogFragment() {
             .clicks()
             .onEach {
                 dismiss()
+            }
+            .launchIn(lifecycleScope)
+
+        binding.textAddress
+            .textChanges()
+            .skipInitialValue()
+            .debounce(500)
+            .onEach {
+                viewModel.setAddress(it.toString())
+            }
+            .launchIn(lifecycleScope)
+
+        binding.textBedrooms
+            .textChanges()
+            .skipInitialValue()
+            .debounce(500)
+            .onEach {
+                viewModel.setBedrooms(
+                    if (it.isBlank()) null
+                    else it.toString().toInt()
+                )
+            }
+            .launchIn(lifecycleScope)
+
+        binding.textBathrooms
+            .textChanges()
+            .skipInitialValue()
+            .debounce(500)
+            .onEach {
+                viewModel.setBathrooms(
+                    if (it.isBlank()) null
+                    else it.toString().toInt()
+                )
+            }
+            .launchIn(lifecycleScope)
+
+        binding.textRent
+            .textChanges()
+            .skipInitialValue()
+            .debounce(500)
+            .onEach {
+                viewModel.setRent(
+                    if (it.isBlank()) null
+                    else it.toString().toDouble()
+                )
             }
             .launchIn(lifecycleScope)
 
@@ -58,6 +101,9 @@ class AddPropertyFragment : BottomSheetDialogFragment() {
                     is AddPropertyState.ShowLoadingState -> {
                     }
                     is AddPropertyState.HideLoadingState -> {
+                    }
+                    is AddPropertyState.SetSubmitButton -> {
+                        binding.buttonSubmit.isEnabled = state.isComplete
                     }
                     is AddPropertyState.AddProperty -> {
                     }

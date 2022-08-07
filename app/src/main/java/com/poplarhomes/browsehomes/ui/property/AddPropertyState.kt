@@ -6,6 +6,8 @@ sealed class AddPropertyState {
 
     object HideLoadingState : AddPropertyState()
 
+    data class SetSubmitButton(val isComplete: Boolean) : AddPropertyState()
+
     object AddProperty : AddPropertyState()
 
     data class ShowErrorMessage(val errorMessage: String) : AddPropertyState()

@@ -13,4 +13,38 @@ class AddPropertyViewModel @Inject constructor(
     private val _state = MutableStateFlow<AddPropertyState>(AddPropertyState.HideLoadingState)
     val state: StateFlow<AddPropertyState> = _state
 
+    private var address = ""
+    private var beds: Int? = null
+    private var baths: Int? = null
+    private var rent: Double? = null
+
+    fun setAddress(address: String) {
+        this.address = address
+        setSubmitButton()
+    }
+
+    fun setBedrooms(beds: Int?) {
+        this.beds = beds
+        setSubmitButton()
+    }
+
+    fun setBathrooms(baths: Int?) {
+        this.baths = baths
+        setSubmitButton()
+    }
+
+    fun setRent(rent: Double?) {
+        this.rent = rent
+        setSubmitButton()
+    }
+
+    private fun setSubmitButton() {
+        _state.value = AddPropertyState.SetSubmitButton(
+            address.isNotBlank()
+                && beds != null
+                && baths != null
+                && rent != null
+        )
+    }
+
 }
