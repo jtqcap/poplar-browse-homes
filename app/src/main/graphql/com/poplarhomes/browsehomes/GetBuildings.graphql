@@ -1,0 +1,10 @@
+query GetBuildings {
+    buildings {
+        buildingId
+        address
+        imageUrl
+        baths
+        beds
+        rent
+    }
+}

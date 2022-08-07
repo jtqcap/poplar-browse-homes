@@ -1,0 +1,21 @@
+type Building {
+    buildingId: String
+    address: String
+    imageUrl: String
+    baths: Int
+    beds: Int
+    rent: Float
+}
+
+type Query {
+    buildings: [Building]
+}
+
+type Mutation {
+    addBuilding(address: String!, baths: Int!, beds: Int!, rent: Float!): Building
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
