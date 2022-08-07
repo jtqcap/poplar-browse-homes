@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
 
+    private lateinit var adapter: BuildingsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,6 +33,9 @@ class MainActivity : AppCompatActivity() {
     private fun setViews() {
         val items = resources.getStringArray(R.array.search_filters).toList()
         binding.listFilters.adapter = SearchFiltersAdapter(items)
+
+        adapter = BuildingsAdapter()
+        binding.listHomes.adapter = adapter
     }
 
     private fun setViewCallbacks() {
@@ -64,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                     is MainState.HideLoadingState -> {
                     }
                     is MainState.GetBuildings -> {
+                        adapter.setItems(state.buildings)
                     }
                     is MainState.ShowErrorMessage -> {
                     }

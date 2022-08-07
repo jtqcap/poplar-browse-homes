@@ -15,9 +15,7 @@ class GetBuildingsUseCase @Inject constructor(
     suspend fun execute(): List<GetBuildingsQuery.Building?> =
         withContext(dispatcher) {
             val buildings = apolloClient.query(GetBuildingsQuery()).execute().data?.buildings
-
-            if (buildings.isNullOrEmpty()) emptyList()
-            else buildings
+            buildings ?: emptyList()
         }
 
 }

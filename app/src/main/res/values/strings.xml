@@ -8,4 +8,6 @@
         <item>Property Type</item>
         <item>WFH</item>
     </string-array>
+    <string name="x_bedroom_building">%d-bedroom Building</string>
+    <string name="space_x"><![CDATA[<font color=#FFFFFF>XXX</font>%s]]></string>
 </resources>

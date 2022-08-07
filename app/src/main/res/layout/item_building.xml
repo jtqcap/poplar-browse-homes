@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="12dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view_card"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_building"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lilac" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_building_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/shuttle"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_card"
+        tools:text="2-bedroom Building" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_rent_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/mine"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_building_type"
+        tools:text="$1,000" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-4dp"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/shuttle"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_rent_price"
+        tools:text="     1440 Chestnut Street Unit C, Oakland, CA 94607, United States" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/ic_location"
+        android:tint="@color/shuttle"
+        app:layout_constraintStart_toStartOf="@id/text_address"
+        app:layout_constraintTop_toTopOf="@id/text_address" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
