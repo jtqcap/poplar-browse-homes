@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/text_title" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/text_baths"
+        android:id="@+id/text_bedrooms"
         style="@style/Widget.Poplar.EditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -57,12 +57,12 @@
         android:digits="0123456789"
         android:hint="@string/bedrooms"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@id/text_beds"
+        app:layout_constraintEnd_toStartOf="@id/text_bathrooms"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_address" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/text_beds"
+        android:id="@+id/text_bathrooms"
         style="@style/Widget.Poplar.EditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:hint="@string/bathrooms"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/text_baths"
+        app:layout_constraintStart_toEndOf="@id/text_bedrooms"
         app:layout_constraintTop_toBottomOf="@id/text_address" />
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -85,7 +85,7 @@
         android:layout_marginTop="8dp"
         android:hint="@string/rent"
         android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@id/text_baths" />
+        app:layout_constraintTop_toBottomOf="@id/text_bedrooms" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_submit"
