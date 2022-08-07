@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity() {
             .textChanges()
             .skipInitialValue()
             .debounce(500)
-            .onEach {
+            .onEach { query ->
+                viewModel.filterBuildings(query.toString().lowercase())
             }
             .launchIn(lifecycleScope)
 
