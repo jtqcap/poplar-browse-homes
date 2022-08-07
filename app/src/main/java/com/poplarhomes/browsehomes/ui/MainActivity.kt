@@ -1,11 +1,9 @@
 package com.poplarhomes.browsehomes.ui
 
 import android.os.Bundle
-import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.poplarhomes.browsehomes.R
 import com.poplarhomes.browsehomes.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
         setViews()
         setViewModel()
     }
@@ -42,11 +39,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
     }
 
 }
