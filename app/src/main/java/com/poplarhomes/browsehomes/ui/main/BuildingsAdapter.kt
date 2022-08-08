@@ -45,6 +45,7 @@ class BuildingsAdapter : RecyclerView.Adapter<BuildingsAdapter.ViewHolder>() {
         fun bind(building: GetBuildingsQuery.Building?, position: Int) {
             building?.let {
                 val rent = building.rent ?: 0.0
+                val discountedRent = (rent * 50) / 100
 
                 Picasso.get()
                     .load(building.imageUrl)
@@ -55,7 +56,9 @@ class BuildingsAdapter : RecyclerView.Adapter<BuildingsAdapter.ViewHolder>() {
                     R.string.x_bedroom_building,
                     building.beds
                 )
-                binding.textRentPrice.text = rent.price
+                binding.textRentPrice.text =
+                    if (position % 2 == 0) rent.price
+                    else discountedRent.price
                 binding.textRentPrice.setTextColor(
                     context.getColor(
                         if (position % 2 == 0) R.color.mine
@@ -63,7 +66,7 @@ class BuildingsAdapter : RecyclerView.Adapter<BuildingsAdapter.ViewHolder>() {
                     )
                 )
                 binding.viewStrikethrough.isVisible = position % 2 != 0
-                binding.textOldPrice.text = (rent * 0.1).price
+                binding.textOldPrice.text = rent.price
                 binding.textOldPrice.isVisible = position % 2 != 0
                 binding.textAddress.text = Html.fromHtml(
                     context.getString(R.string.space_x, building.address),
