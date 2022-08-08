@@ -3,6 +3,7 @@ package com.poplarhomes.browsehomes.ui.main
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.poplarhomes.browsehomes.GetBuildingsQuery
 import com.poplarhomes.browsehomes.R
@@ -24,7 +25,7 @@ class BuildingsAdapter : RecyclerView.Adapter<BuildingsAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], position)
     }
 
     override fun getItemCount() = items.size
@@ -41,8 +42,10 @@ class BuildingsAdapter : RecyclerView.Adapter<BuildingsAdapter.ViewHolder>() {
 
         private val context = binding.root.context
 
-        fun bind(building: GetBuildingsQuery.Building?) {
+        fun bind(building: GetBuildingsQuery.Building?, position: Int) {
             building?.let {
+                val rent = building.rent ?: 0.0
+
                 Picasso.get()
                     .load(building.imageUrl)
                     .fit()
@@ -52,7 +55,16 @@ class BuildingsAdapter : RecyclerView.Adapter<BuildingsAdapter.ViewHolder>() {
                     R.string.x_bedroom_building,
                     building.beds
                 )
-                binding.textRentPrice.text = building.rent?.price
+                binding.textRentPrice.text = rent.price
+                binding.textRentPrice.setTextColor(
+                    context.getColor(
+                        if (position % 2 == 0) R.color.mine
+                        else R.color.sunset
+                    )
+                )
+                binding.viewStrikethrough.isVisible = position % 2 != 0
+                binding.textOldPrice.text = (rent * 0.1).price
+                binding.textOldPrice.isVisible = position % 2 != 0
                 binding.textAddress.text = Html.fromHtml(
                     context.getString(R.string.space_x, building.address),
                     Html.FROM_HTML_MODE_LEGACY
